@@ -81,6 +81,32 @@ let admin = {
     lat: Joi.number().required(),
     long: Joi.number().required(),
   }),
+  CREATE_PRODUCT: Joi.object().keys({
+    name: Joi.string().required(),
+    description: Joi.string().required(),
+    originalAmount: Joi.number().required(),
+    discountAmount: Joi.number().required(),
+    brandName: Joi.string().required(),
+    size: Joi.string().required(),
+    category: Joi.string().required(),
+    images: Joi.array().required(),
+    isAvailable: Joi.bool().required(),
+    isPopular: Joi.bool().required(),
+  }),
+  EDIT_PRODUCT: Joi.object().keys({
+    name: Joi.string(),
+    description: Joi.string(),
+    originalAmount: Joi.number(),
+    discountAmount: Joi.number(),
+    brandName: Joi.string(),
+    size: Joi.string(),
+    category: Joi.string(),
+    images: Joi.array(),
+    isAvailable: Joi.bool(),
+    isDeleted: Joi.bool(),
+    isBlocked: Joi.bool(),
+    isPopular: Joi.bool(),
+  }),
 };
 
 export default admin;

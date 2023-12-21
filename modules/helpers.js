@@ -11,3 +11,13 @@ export const verifyToken = (token) => {
     return null;
   }
 };
+
+export const calculateProductPercentage = ({
+  originalAmount,
+  discountAmount,
+}) => {
+  const discountPercentage =
+    ((originalAmount - discountAmount) / originalAmount) * 100;
+
+  return discountPercentage.toFixed(2);
+};

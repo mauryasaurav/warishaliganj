@@ -5,6 +5,7 @@ import  * as auth from "../controller/admin/auth";
 import  * as user from "../controller/admin/user";
 import  * as banner from "../controller/admin/banner";
 import  * as category from "../controller/admin/category";
+import  * as product from "../controller/admin/product";
 
 import { uploadAdminFile } from "../modules/aws-s3";
 import { verifyAdminToken } from "../middlewares/authentication";
@@ -36,5 +37,12 @@ router.route("/categories").post(celebrate({ body: admin.ADD_CATAGORY }), verify
 router.route("/categories/:id").patch(celebrate({ body: admin.EDIT_CATAGORY }), verifyAdminToken, category.updateCategoryController)
 router.route("/categories").get(verifyAdminToken, category.getAllCategoryController);
 router.route("/categories/:id").delete(verifyAdminToken, category.deleteCategoryController);
+
+
+// Categories APIs
+router.route("/products").post(celebrate({ body: admin.CREATE_PRODUCT }), verifyAdminToken, product.addProductController)
+router.route("/products/:id").patch(celebrate({ body: admin.EDIT_PRODUCT }), verifyAdminToken, product.updateProductController)
+router.route("/products").get(verifyAdminToken, product.getAllProductController);
+router.route("/products/:id").delete(verifyAdminToken, product.deleteProductController);
 
 export default router;
