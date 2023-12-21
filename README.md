@@ -1,2 +1,1 @@
-# chor-backend
 
