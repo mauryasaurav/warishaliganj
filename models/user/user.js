@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    dob: {
+      type: Date,
+      default: "",
+    },
     gender: {
       type: String,
       default: "", //   1 for male 2 for female 3 for other

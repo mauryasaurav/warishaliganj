@@ -91,6 +91,7 @@ let admin = {
     category: Joi.string().required(),
     images: Joi.array().required(),
     isAvailable: Joi.bool().required(),
+    isTrending: Joi.bool().required(),
     isPopular: Joi.bool().required(),
   }),
   EDIT_PRODUCT: Joi.object().keys({
@@ -103,6 +104,7 @@ let admin = {
     category: Joi.string(),
     images: Joi.array(),
     isAvailable: Joi.bool(),
+    isTrending: Joi.bool(),
     isDeleted: Joi.bool(),
     isBlocked: Joi.bool(),
     isPopular: Joi.bool(),

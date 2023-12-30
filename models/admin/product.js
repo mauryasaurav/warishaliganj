@@ -49,6 +49,10 @@ const productSchema = new mongoose.Schema(
       type: Boolean,
       default: true,
     },
+    isTrending: {
+      type: Boolean,
+      default: false,
+    },
     isPopular: {
       type: Boolean,
       default: true,

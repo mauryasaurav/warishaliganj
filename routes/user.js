@@ -3,9 +3,11 @@ import { celebrate } from "celebrate";
 import { verifyUserToken } from "../middlewares/authentication";
 import user from "../validation/user.validation";
 import { uploadAdminFile } from "../modules/aws-s3";
-import  * as auth from "../controller/user/auth";
-import  * as banner from "../controller/user/banner";
-import  * as category from "../controller/user/category";
+import * as auth from "../controller/user/auth";
+import * as banner from "../controller/user/banner";
+import * as category from "../controller/user/category";
+import * as product from "../controller/user/products";
+import * as users from "../controller/user/users";
 
 const router = Router()
 
@@ -23,5 +25,10 @@ router.route("/categories").get(verifyUserToken, category.getAllCategoryControll
 
 // Banners APIs
 router.route("/banners").get(verifyUserToken, banner.getAllTaskController);
+
+// Banners APIs
+router.route("/products").get(verifyUserToken, product.getAllProductsController);
+
+router.route("/users/me").get(verifyUserToken, users.getUserDetailController)
 
 export default router;

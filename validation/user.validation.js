@@ -7,6 +7,7 @@ let user = {
     deviceType: Joi.string().required(),
     deviceToken: Joi.string().required(),
     fullName: Joi.string().required(),
+    dob: Joi.date().required(),
     email: Joi.string().required(),
     gender: Joi.string().required(),
     lat: Joi.number().required(),
