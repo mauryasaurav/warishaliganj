@@ -14,7 +14,7 @@ let user = {
     long: Joi.number().required(),
   }),
   LOGIN: Joi.object().keys({
-    phoneNumber: Joi.string().required(),
+    email: Joi.string().required(),
     lat: Joi.number().required(),
     long: Joi.number().required(),
     deviceToken: Joi.string().required(),

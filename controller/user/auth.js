@@ -27,13 +27,13 @@ export const createAccountController = async (req, res) => {
 
 export const loginController = async (req, res) => {
   try {
-    const userResp = await userService.getUserByPhone(req.body);
+    const userResp = await userService.getUserByEmail(req.body);
     if (!userResp) {
       sendErrorResponse(res, "Phone Number do not exist", 404);
       return;
     }
 
-    let accessToken = generateToken({ phoneNumber: userResp.phoneNumber });
+    let accessToken = generateToken({ email: userResp.email });
     sendSuccessResponse(res, "OTP sent successfully", {
       ...req.body,
       accessToken,
@@ -51,10 +51,10 @@ export const verifyOtpController = async (req, res) => {
       return;
     }
 
-    console.log(exractToken.phoneNumber);
-    const userResp = await userService.getUserByPhone({
-      phoneNumber: exractToken.phoneNumber,
+    const userResp = await userService.getUserByEmail({
+      email: exractToken.email,
     });
+
     if (!userResp) {
       sendErrorResponse(
         res,
@@ -92,7 +92,7 @@ export const resendOtpController = async (req, res) => {
       return;
     }
 
-    let accessToken = generateToken({ phoneNumber: exractToken.phoneNumber });
+    let accessToken = generateToken({ email: exractToken.email });
     sendSuccessResponse(res, "OTP sent successfully", {
       ...exractToken,
       accessToken,
